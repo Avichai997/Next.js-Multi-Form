@@ -8,12 +8,8 @@
 }
 
 .content {
-  flex: 1;
   padding: 45px 32px 0px 70px;
-}
-
-.navigation {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 2rem;
 }

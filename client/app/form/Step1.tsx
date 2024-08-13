@@ -8,7 +8,6 @@ import { TextField, SxProps } from '@mui/material';
 import { z } from 'zod';
 import { toFormikValidationSchema } from 'zod-formik-adapter';
 import { Theme } from '@emotion/react';
-import Button from '../components/Button/Button';
 
 const validationSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -35,7 +34,6 @@ export default function Step1() {
     validationSchema: toFormikValidationSchema(validationSchema),
     onSubmit: (values) => {
       setUserInfo(values);
-      setStep((prev) => prev + 1);
     },
   });
 
@@ -87,9 +85,6 @@ export default function Step1() {
           sx={inputStyle}
         />
 
-        <div className={styles.btnContainer}>
-          <Button />
-        </div>
       </form>
     </div>
   );

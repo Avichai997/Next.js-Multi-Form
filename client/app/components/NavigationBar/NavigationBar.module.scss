@@ -5,3 +5,9 @@
   border-radius: 10px;
   background-color: var(--marine-blue);
 }
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
