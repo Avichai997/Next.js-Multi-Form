@@ -23,6 +23,9 @@ const inputStyle: SxProps<Theme> = {
   '& .MuiInputBase-input::placeholder': {
     fontWeight: 'bold',
   },
+  '& .Mui-error': {
+    fontSize: 12,
+  },
 };
 
 export default function Step1() {
@@ -84,7 +87,6 @@ export default function Step1() {
           fullWidth
           sx={inputStyle}
         />
-
       </form>
     </div>
   );
