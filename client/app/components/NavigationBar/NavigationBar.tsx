@@ -10,7 +10,11 @@ const NavigationBar = () => {
   return (
     <div className={styles.navigation}>
       {step > 1 && (
-        <Button variant='contained' onClick={() => setStep(step - 1)}>
+        <Button
+          variant='text'
+          style={{ color: 'var(--cool-gray)' }}
+          onClick={() => setStep(step - 1)}
+        >
           Go Back
         </Button>
       )}

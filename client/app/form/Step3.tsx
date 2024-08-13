@@ -23,25 +23,25 @@ export default function Step3() {
     <div className={styles.step}>
       <form>
         <AddOnControl
-          label={`Online Service - Access to multiplayer games (+${
-            isYearly ? '$10/yr' : '$1/mo'
-          })`}
+          label='Online Service'
+          description='Access to multiplayer games'
+          price={isYearly ? '$10/yr' : '$1/mo'}
           checked={addOns.onlineService}
           onChange={handleAddOnChange}
           name='onlineService'
         />
         <AddOnControl
-          label={`Larger Storage - Extra 1TB of cloud save (+${
-            isYearly ? '$20/yr' : '$2/mo'
-          })`}
+          label='Larger Storage'
+          description='Extra 1TB of cloud save'
+          price={isYearly ? '$20/yr' : '$2/mo'}
           checked={addOns.largerStorage}
           onChange={handleAddOnChange}
           name='largerStorage'
         />
         <AddOnControl
-          label={`Customizable Profile - Custom theme on your profile (+${
-            isYearly ? '$20/yr' : '$2/mo'
-          })`}
+          label='Customizable Profile'
+          description='Custom theme on your profile'
+          price={isYearly ? '$20/yr' : '$2/mo'}
           checked={addOns.customizableProfile}
           onChange={handleAddOnChange}
           name='customizableProfile'
