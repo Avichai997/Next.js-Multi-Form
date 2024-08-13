@@ -17,8 +17,6 @@ export default function Step3() {
 
   return (
     <div className={styles.step}>
-      <h2>Pick Add-Ons</h2>
-      <p>Add-ons help enhance your gaming experience.</p>
       <form>
         <FormControlLabel
           control={

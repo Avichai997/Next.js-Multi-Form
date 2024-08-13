@@ -1,0 +1,16 @@
+.titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .mainTitle {
+    color: var(--marine-blue);
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .subTitle {
+    color: var(--cool-gray);
+    font-size: 1rem;
+  }
+}

@@ -42,9 +42,6 @@ export default function Step1() {
 
   return (
     <div className={styles.step}>
-      <p className={styles.mainTitle}>Personal info</p>
-      <p>Please provide your name, email address, and phone number.</p>
-
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.label}>Name</div>
         <TextField

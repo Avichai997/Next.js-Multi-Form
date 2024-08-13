@@ -28,8 +28,6 @@ export default function Summary() {
 
   return (
     <div className={styles.summary}>
-      <h2>Summary</h2>
-      <p>Double-check everything looks OK before confirming.</p>
       <div className={styles.details}>
         <p>
           <strong>Name:</strong> {userInfo.name}

@@ -52,10 +52,6 @@ export default function Step2() {
 
   return (
     <div className={styles.step}>
-      <h2 className={styles.title}>Select Your Plan</h2>
-      <p className={styles.subtitle}>
-        You have the option of monthly or yearly billing.
-      </p>
       <form>
         <RadioGroup
           name='plan'

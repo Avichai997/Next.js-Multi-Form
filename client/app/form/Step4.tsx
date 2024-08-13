@@ -28,8 +28,6 @@ export default function Step4() {
 
   return (
     <div className={styles.step}>
-      <h2>Finishing Up</h2>
-      <p>Double-check everything looks OK before confirming.</p>
       <div className={styles.summary}>
         <p>
           <strong>Name:</strong> {userInfo.name}

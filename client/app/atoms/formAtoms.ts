@@ -20,7 +20,7 @@ export interface AddOns {
 }
 
 // TODO: change to 1
-export const stepAtom = atom<StepType>(2);
+export const stepAtom = atom<StepType>(1);
 
 export const userInfoAtom = atom<UserInfo>({
   name: '',
