@@ -1,3 +1,9 @@
 {
-  "cSpell.words": ["formik"]
+  "cSpell.words": ["formik"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.mouseWheelZoom": true,
+  "files.autoSave": "afterDelay"
 }

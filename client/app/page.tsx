@@ -14,28 +14,21 @@ import { Button } from '@mui/material';
 export default function Home() {
   const [step, setStep] = useAtom(stepAtom);
 
-  const renderStep = () => {
-    switch (step) {
-      case 1:
-        return <Step1 />;
-      case 2:
-        return <Step2 />;
-      case 3:
-        return <Step3 />;
-      case 4:
-        return <Step4 />;
-      case 5:
-        return <Summary />;
-      default:
-        return <Step1 />;
-    }
+  const renderStep = {
+    1: <Step1 />,
+    2: <Step2 />,
+    3: <Step3 />,
+    4: <Step4 />,
+    5: <Summary />,
   };
 
   return (
     <div className={styles.container}>
       <Sidebar currentStep={step} />
+      
       <div className={styles.content}>
-        {renderStep()}
+        {renderStep[step as keyof typeof renderStep]}
+
         <div className={styles.navigation}>
           {step > 1 && (
             <Button variant='contained' onClick={() => setStep(step - 1)}>

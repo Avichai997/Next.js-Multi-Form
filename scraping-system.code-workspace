@@ -1,0 +1,21 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "restoreTerminals.keepExistingTerminalsOpen": false,
+    "restoreTerminals.terminals": [
+      {
+        "splitTerminals": [
+          {
+            "name": "client",
+            "commands": ["cd client", "npm run dev"]
+          }
+        ]
+      }
+    ],
+    "cSpell.words": ["formik"]
+  }
+}
