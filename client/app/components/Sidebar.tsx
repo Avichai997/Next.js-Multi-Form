@@ -7,7 +7,7 @@ interface SidebarProps {
   currentStep: number;
 }
 
-const steps = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
+const steps = ['1', '2', '3', '4'];
 
 export default function Sidebar({ currentStep }: SidebarProps) {
   return (

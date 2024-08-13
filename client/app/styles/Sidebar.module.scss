@@ -8,13 +8,19 @@
   padding: 40px;
 
   .step {
-    padding: 1rem;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 700;
   }
 
   .active {
-    background: #007bff;
-    color: #fff;
+    background: var(--light-blue);
+    color: black;
   }
 }
