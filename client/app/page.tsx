@@ -35,7 +35,7 @@ export default function Home() {
               Go Back
             </Button>
           )}
-          {step < 5 && (
+          {/* {step < 5 && (
             <Button
               variant='contained'
               color='primary'
@@ -43,7 +43,7 @@ export default function Home() {
             >
               Next Step
             </Button>
-          )}
+          )} */}
         </div>
       </div>
     </div>
