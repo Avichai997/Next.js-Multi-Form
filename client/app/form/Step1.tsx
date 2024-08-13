@@ -29,11 +29,13 @@ export default function Step1() {
   return (
     <div className={styles.step}>
       <h2>Your Info</h2>
+      <p>Please provide your name, email address, and phone number.</p>
       <form onSubmit={formik.handleSubmit}>
         <TextField
           label='Name'
           id='name'
           name='name'
+          placeholder='e.g. Stephen King'
           value={formik.values.name}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
