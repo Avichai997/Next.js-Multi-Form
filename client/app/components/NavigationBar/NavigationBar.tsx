@@ -18,7 +18,7 @@ const NavigationBar = () => {
           Go Back
         </Button>
       )}
-      {step < 5 && (
+      {step < 4 && (
         <Button
           className={styles.btn}
           type='submit'
@@ -30,6 +30,19 @@ const NavigationBar = () => {
           onClick={() => setStep(step + 1)}
         >
           Next Step
+        </Button>
+      )}
+      {step === 4 && (
+        <Button
+          className={`${styles.btn} ${styles.confirm}`}
+          type='submit'
+          variant='contained'
+          color='primary'
+          style={{
+            marginLeft: 'auto',
+          }}
+        >
+          Confirm
         </Button>
       )}
     </div>

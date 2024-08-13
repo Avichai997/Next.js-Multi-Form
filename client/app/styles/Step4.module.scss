@@ -4,22 +4,84 @@
   gap: 1rem;
 
   .summary {
-    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: hsl(228deg 100% 84% / 18%);
+    width: 450px;
+
+    .planDetails {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      div:first-child {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      > span {
+        font-weight: 700;
+        color: var(--marine-blue);
+      }
+      .planName {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+
+      .changeLink {
+        font-size: 0.875rem;
+        text-decoration: underline;
+        cursor: pointer;
+        color: var(--cool-gray);
+
+        &:hover {
+          color: var(--purplish-blue);
+        }
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--light-gray);
+      margin: 1rem 0;
+    }
+
+    .addOns {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+
+      .addOnItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--cool-gray);
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  .total {
+    & span:first-child {
+      color: var(--cool-gray);
+      font-weight: 500;
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--purplish-blue);
     padding: 1rem;
     border-radius: 4px;
 
-    p,
-    ul {
-      margin-bottom: 0.5rem;
+    .totalPrice {
+      font-size: 1.25rem;
     }
+  }
 
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    li {
-      margin-bottom: 0.3rem;
-    }
+  .confirmButton {
+    align-self: flex-end;
+    margin-top: 1rem;
   }
 }
