@@ -1,12 +1,14 @@
 'use client';
 
 import { useAtom } from 'jotai';
-import { addOnsAtom } from '../atoms/formAtoms';
+import { addOnsAtom, planAtom } from '../atoms/formAtoms';
 import styles from '../styles/Step3.module.scss';
-import { FormControlLabel, Checkbox, Button } from '@mui/material';
+import { Button } from '@mui/material';
+import { AddOnControl } from '../components/AddOnControl';
 
 export default function Step3() {
   const [addOns, setAddOns] = useAtom(addOnsAtom);
+  const [plan] = useAtom(planAtom);
 
   const handleAddOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAddOns((prev) => ({
@@ -15,43 +17,35 @@ export default function Step3() {
     }));
   };
 
+  const isYearly = plan.billing === 'yearly';
+
   return (
     <div className={styles.step}>
       <form>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={addOns.onlineService}
-              onChange={handleAddOnChange}
-              name='onlineService'
-            />
-          }
-          label='Online Service - Access to multiplayer games (+$1/mo)'
+        <AddOnControl
+          label={`Online Service - Access to multiplayer games (+${
+            isYearly ? '$10/yr' : '$1/mo'
+          })`}
+          checked={addOns.onlineService}
+          onChange={handleAddOnChange}
+          name='onlineService'
         />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={addOns.largerStorage}
-              onChange={handleAddOnChange}
-              name='largerStorage'
-            />
-          }
-          label='Larger Storage - Extra 1TB of cloud save (+$2/mo)'
+        <AddOnControl
+          label={`Larger Storage - Extra 1TB of cloud save (+${
+            isYearly ? '$20/yr' : '$2/mo'
+          })`}
+          checked={addOns.largerStorage}
+          onChange={handleAddOnChange}
+          name='largerStorage'
         />
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={addOns.customizableProfile}
-              onChange={handleAddOnChange}
-              name='customizableProfile'
-            />
-          }
-          label='Customizable Profile - Custom theme on your profile (+$2/mo)'
+        <AddOnControl
+          label={`Customizable Profile - Custom theme on your profile (+${
+            isYearly ? '$20/yr' : '$2/mo'
+          })`}
+          checked={addOns.customizableProfile}
+          onChange={handleAddOnChange}
+          name='customizableProfile'
         />
-
-        <Button type='submit' variant='contained' color='primary'>
-          Next Step
-        </Button>
       </form>
     </div>
   );
