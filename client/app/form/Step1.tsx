@@ -1,24 +1,28 @@
-import React from 'react';
-import { useFormik } from 'formik';
-import { z } from 'zod';
-import styles from '../styles/Step1.module.scss';
+'use client';
 
-const schema = z.object({
-  name: z.string().min(1, 'Name number is required'),
-  email: z.string().email('Invalid email').min(1, 'Email is required'),
-  phone: z.string().min(1, 'Phone number is required'),
+import { useAtom } from 'jotai';
+import { useFormik } from 'formik';
+import { userInfoAtom } from '../atoms/formAtoms';
+import styles from '../styles/Step1.module.scss';
+import { TextField, Button } from '@mui/material';
+import { z } from 'zod';
+import { toFormikValidationSchema } from 'zod-formik-adapter';
+
+const validationSchema = z.object({
+  name: z.string().nonempty('Name is required'),
+  email: z.string().email('Invalid email address'),
+  phone: z.string().nonempty('Phone number is required'),
 });
 
-const Step1: React.FC = () => {
+export default function Step1() {
+  const [userInfo, setUserInfo] = useAtom(userInfoAtom);
+
   const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      phone: '',
-    },
-    validationSchema: schema,
+    initialValues: userInfo,
+    validationSchema: toFormikValidationSchema(validationSchema),
     onSubmit: (values) => {
-      console.log(values);
+      setUserInfo(values);
+      // Move to next step
     },
   });
 
@@ -26,43 +30,43 @@ const Step1: React.FC = () => {
     <div className={styles.step}>
       <h2>Your Info</h2>
       <form onSubmit={formik.handleSubmit}>
-        <label htmlFor='name'>Name</label>
-        <input
+        <TextField
+          label='Name'
           id='name'
           name='name'
-          type='text'
-          placeholder='e.g. Stephen King'
-          onChange={formik.handleChange}
           value={formik.values.name}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.name && Boolean(formik.errors.name)}
+          helperText={formik.touched.name && formik.errors.name}
+          fullWidth
         />
-        {formik.errors.name && <p>{formik.errors.name}</p>}
-
-        <label htmlFor='email'>Email Address</label>
-        <input
+        <TextField
+          label='Email Address'
           id='email'
           name='email'
-          type='email'
-          placeholder='e.g. stephenking@lorem.com'
-          onChange={formik.handleChange}
           value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.touched.email && formik.errors.email}
+          fullWidth
         />
-        {formik.errors.email && <p>{formik.errors.email}</p>}
-
-        <label htmlFor='phone'>Phone Number</label>
-        <input
+        <TextField
+          label='Phone Number'
           id='phone'
           name='phone'
-          type='tel'
-          placeholder='e.g. +1 234 567 890'
-          onChange={formik.handleChange}
           value={formik.values.phone}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.phone && Boolean(formik.errors.phone)}
+          helperText={formik.touched.phone && formik.errors.phone}
+          fullWidth
         />
-        {formik.errors.phone && <p>{formik.errors.phone}</p>}
-
-        <button type='submit'>Next Step</button>
+        <Button type='submit' variant='contained' color='primary'>
+          Next Step
+        </Button>
       </form>
     </div>
   );
-};
-
-export default Step1;
+}

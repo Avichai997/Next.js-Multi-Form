@@ -1,13 +1,12 @@
-.step {
+.summary {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 4px;
 
-  .summary {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 4px;
-
+  .details {
     p,
     ul {
       margin-bottom: 0.5rem;

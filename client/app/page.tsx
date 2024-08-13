@@ -1,16 +1,18 @@
 'use client';
 
-import { useState } from 'react';
-import styles from './page.module.scss';
+import { useAtom } from 'jotai';
+import { stepAtom } from './atoms/formAtoms';
+import styles from './styles/page.module.scss';
 import Sidebar from './components/Sidebar';
 import Step1 from './form/Step1';
 import Step2 from './form/Step2';
 import Step3 from './form/Step3';
 import Step4 from './form/Step4';
 import Summary from './form/Summary';
+import { Button } from '@mui/material';
 
 export default function Home() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useAtom(stepAtom);
 
   const renderStep = () => {
     switch (step) {
@@ -36,15 +38,18 @@ export default function Home() {
         {renderStep()}
         <div className={styles.navigation}>
           {step > 1 && (
-            <button onClick={() => setStep(step - 1)}>Go Back</button>
+            <Button variant='contained' onClick={() => setStep(step - 1)}>
+              Go Back
+            </Button>
           )}
           {step < 5 && (
-            <button onClick={() => setStep(step + 1)}>Next Step</button>
-          )}
-          {step === 5 && (
-            <button onClick={() => alert('Order Confirmed!')}>
-              Confirm Order
-            </button>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={() => setStep(step + 1)}
+            >
+              Next Step
+            </Button>
           )}
         </div>
       </div>
