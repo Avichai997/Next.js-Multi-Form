@@ -1,0 +1,53 @@
+'use client';
+
+import { useState } from 'react';
+import styles from './page.module.scss';
+import Sidebar from './components/Sidebar';
+import Step1 from './form/Step1';
+import Step2 from './form/Step2';
+import Step3 from './form/Step3';
+import Step4 from './form/Step4';
+import Summary from './form/Summary';
+
+export default function Home() {
+  const [step, setStep] = useState(1);
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return <Step1 />;
+      case 2:
+        return <Step2 />;
+      case 3:
+        return <Step3 />;
+      case 4:
+        return <Step4 />;
+      case 5:
+        return <Summary />;
+      default:
+        return <Step1 />;
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <Sidebar currentStep={step} />
+      <div className={styles.content}>
+        {renderStep()}
+        <div className={styles.navigation}>
+          {step > 1 && (
+            <button onClick={() => setStep(step - 1)}>Go Back</button>
+          )}
+          {step < 5 && (
+            <button onClick={() => setStep(step + 1)}>Next Step</button>
+          )}
+          {step === 5 && (
+            <button onClick={() => alert('Order Confirmed!')}>
+              Confirm Order
+            </button>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
